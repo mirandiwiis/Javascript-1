@@ -145,32 +145,28 @@ const degreeEvaluation = (degreeToCheck) => {
 
 
 const actualSeason = function(month, day) {
+
     if(typeof month !== 'string' || typeof day !== 'number') {
         console.log('Los valores introducidos son erroneos');
+
     } else if (day <= 0 || day > 31) {
         console.log('¿En que mundo vives?');
+
     } else if( day === 31 && (month === 'Febrero' || month === 'Abril' || month === 'Junio' || month === 'Septiembre' || month === 'Noviembre')) {
         console.log('Recuerda, hay meses que no tienen 31 dias.');
+
     } else if(month === 'Febrero' && day > 29) {
         console.log('Piensa claro, Febrero no tiene tantos dias.')
-    } else if (month === 'Marzo' && day >=21 && day <= 31) {
+
+    } else if ((month === 'Marzo' && day >=21 && day <= 31) || (month === 'Junio' && day >= 1 && day <= 20) || month === 'Abril' || month === 'Mayo' ) {
         console.log('Primavera');
-    } else if (month === 'Abril' || month === 'Mayo') {
-        console.log('Primavera');
-    } else if(month === 'Junio' && day >= 1 && day <= 20) {
-        console.log('Primavera');
-    }else if (month === 'Julio' || month === 'Agosto') {
+    
+    }else if ((month === 'Junio' && day >= 21) || (month === 'Septiembre' && day >= 1 && day <= 22) || month === 'Julio' || month === 'Agosto') {
         console.log('Verano');
-    } else if (month === 'Junio' && day >= 21) {
-        console.log('Verano');
-    } else if(month === 'Septiembre' && day >= 1 && day <= 22) {        
-        console.log('Verano');
-    } else if(month === 'Septiembre' && day >= 23 && day <= 30) {
+    
+    } else if((month === 'Septiembre' && day >= 23 && day <= 30) || (month === 'Diciembre' && day >= 1 && day <= 21) || month === 'Octubre' || month === 'Noviembre' ) {
         console.log('Otoño');
-    } else if(month === 'Octubre' || month === 'Noviembre') {
-        console.log('Otoño');
-    } else if(month === 'Diciembre' && day >= 1 && day <= 21) {
-        console.log('Otoño');
+
     } else {
         console.log('Invierno')
     }
