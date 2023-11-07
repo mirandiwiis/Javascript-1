@@ -1,5 +1,6 @@
 /*
-  1. Dado el siguiente carrito de la compra, calcular el precio total y mostrarlo por pantalla con console.log
+  1. Dado el siguiente carrito de la compra, calcular el precio total y 
+  mostrarlo por pantalla con console.log
 */
 const shoppingCart = [
 	{ product: 'Red wine', price: 20, quantity: 1},
@@ -11,9 +12,10 @@ const shoppingCart = [
 let totalPrice = 0;
 
 shoppingCart.forEach(product => {
-    totalPrice += product.price;
+    totalPrice = totalPrice + product.price * product.quantity;
 });
 
+console.log(totalPrice.toFixed(2))
 
 /*
   2. Crea un array que contenga un listado de tareas. Las tareas tienen un texto y pueden estar completadas o pendientes. 
@@ -22,7 +24,7 @@ shoppingCart.forEach(product => {
 */
 /* Usar filter*/ 
 
-const toDoList = [
+const tasks = [
     {task: 'clean dishes', completed: true},
     {task: 'go shopping', completed: false},
     {task: 'make bed', completed: false},
@@ -30,14 +32,16 @@ const toDoList = [
 ]
 
 
-const completedTasks = toDoList.filter(function (currentState){
-    return currentState.completed === true;
+const completedTasks = tasks.filter(function (task){
+    return task.completed;
 });
 
-const pendingTasks = toDoList.filter(function (currentState){
-    return currentState.completed === false;
+const pendingTasks = tasks.filter(function (task){
+    return !task.completed
 });
 
+console.log(pendingTasks)
+console.log(completedTasks)
 
 /*
  3. Dado el listado de frutas que ponemos a continuación, recórrelo y crea otro array de igual longitud donde en 
@@ -49,10 +53,14 @@ const fruits = ['manzana', 'pera', 'granada', 'platano', 'uva', 'melón', 'sandi
 
 const growTypeFruits = fruits.map (fruits => {
   const growsInTree = ['manzana', 'pera', 'granada', 'platano'].includes(fruits);
-  return {fruits, growsInTree};
+  return {
+    name: fruits, 
+    growsInTree
+  };
 });
 
 console.log(growTypeFruits)
+
 
 
 /* 
@@ -71,13 +79,12 @@ const shoppingCart2 = [
   { product: 'Tiramisú', price: 5.99, quantity: 2 },
 ]
 
-const cartWithTaxes = shoppingCart2.map (item => {
-  const taxes = item.price * 0.1;
+const cartWithTaxes = shoppingCart2.map (function (item) {
+
+  const taxes = item.price * 0.1 * item.quantity
   return {
-    product: item.product,
-    price: item.price,
-    quantity: item.quantity,
-    taxes: taxes,
+    ...item,
+    taxes: taxes.toFixed(2)
   };
 });
 
@@ -90,6 +97,7 @@ console.log(cartWithTaxes)
    "Tiramisú", simplemente se restará uno a la propiedad quantity de ese elemento.
 */
 
+
 const shoppingCart3 = [
 	{ product: 'Red wine', price: 20, quantity: 1},
   { product: 'water', price: 1, quantity: 2 },
@@ -97,10 +105,27 @@ const shoppingCart3 = [
   { product: 'Tiramisú', price: 5.99, quantity: 2 },
 ];
 
-function actualizedCart (productName) {
-  return shoppingCart3.map (item2 => {
-    if (item2.product === productName && item2.quantity > 1) {
-      return {...item2, quantity: item2.quantity - 1}
-    };
+
+function removeItem (productName, shoppingCart) {
+  const newShoppingCart = shoppingCart.map (function(item) {
+    if (item.product === productName) {
+      return { 
+        ...item,
+        quantity: item.quantity -1
+      };
+    }
+
+    return item;
+  });
+
+  return newshoppingCart.filter(function (Item){
+    return item.quantity > 0;
   });
 };
+
+const shoppingCartWithoutRedWine = removeItem(shoppingCart3, 'Red wine');
+console.log(shoppingCartWithoutRedWine);
+const shoppingCartWithoutPizza = removeItem(shoppingCart3, 'Pizza carbonara');
+console.log(shoppingCartWithoutPizza);
+
+
