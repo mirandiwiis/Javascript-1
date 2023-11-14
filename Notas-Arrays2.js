@@ -78,3 +78,5 @@ Se suele utilizar de cara al usuario
 
 Tenemos que recorrer el array para crear un nuevo array que reste uno al parametro quabntity
 */
+
+
