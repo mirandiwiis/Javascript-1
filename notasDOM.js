@@ -66,7 +66,7 @@ document.querySelectorAll('.oct-deal-badge-container')
 document.querySelectorAll('.a-size-small')
 
 
-//EVENTOS!!
+//EVENTOS!!dd
 /* Los eventos los ocasiona el usuario o el DOM
     hay eventos para saber si la pagina ha terminado de cargarse, esos son del DOM
     Si pones mal una url, si acaba un video... son eventos del DOM
