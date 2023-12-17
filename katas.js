@@ -13,5 +13,7 @@ function getCount(s) {
     return (str.filter)
   };
 
-const vocalCount = function(str)
+const vocalCount = function(str) {
+    return str.includes
+}
 // string.filter

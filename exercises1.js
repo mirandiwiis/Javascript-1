@@ -1,3 +1,4 @@
+// CLase = 24/10
 
 /*
 1.  Crear una función que me diga si un número está entre 0 y 10  
@@ -46,10 +47,10 @@ creditCardSimulation = function(productPrice, creditUsed, monthLimit) {
     } 
         return ('No se puede realizar la compra, ha alcanzado el limite mensual');
 }
-// los return paran el flujo de ejecución del codigo
+    // los return paran el flujo de ejecución del codigo
 
-// Necesito función que indique que se ha llegado al limite (no se puede comprar)
-//Necesito una unción que devuelva el valor (dinero gratado este mes + precio del prodcuto comprado)
+    // Necesito función que indique que se ha llegado al limite (no se puede comprar)
+    //Necesito una función que devuelva el valor (dinero gastado este mes + precio del producto comprado)
 
 /*
 5.  Crea una función que indique si un número es par o impar.
@@ -59,12 +60,6 @@ const isEven = (number) => {
     return number % 2 === 0; 
 }
 
-/* Esta mal no se pq
-
-if isEven(2) {
-    console.log('2 es par');
-} 
-*/
 
 /*
 6.  Crea una función que indique el mayor de dos números
@@ -96,7 +91,6 @@ const greaterValue = function(val1, val2, val3) {
     }
 }
 
-
 /*
 8.  Crea una función que, dados dos edades, te diga cuántos años hay entre ellas
 */
@@ -115,7 +109,7 @@ const diferenciaEdad = (edad1,edad2) => {
 
 
 /* 
- Crea una función que al pasarle la nota de un examen (de 0 a 10) te devuelva la nota: suspenso, aprobado, bien, 
+9. Crea una función que al pasarle la nota de un examen (de 0 a 10) te devuelva la nota: suspenso, aprobado, bien, 
  notable o sobresaliente.
 */
 
@@ -140,7 +134,7 @@ const degreeEvaluation = (degreeToCheck) => {
 }
 
 /*
-  Comprueba si dado un mes(Enero, Febrero...) y un día del mes (del 1 al 31), estamos en otoño, invierno, primavera o verano. 
+10.  Comprueba si dado un mes(Enero, Febrero...) y un día del mes (del 1 al 31), estamos en otoño, invierno, primavera o verano. 
 */
 
 
@@ -174,7 +168,7 @@ const actualSeason = function(month, day) {
 
 
 /*
-  Crea una función que categorice vehículos en función de sus características. Tendrá tres parámetros: 
+11.  Crea una función que categorice vehículos en función de sus características. Tendrá tres parámetros: 
     - El número de ruedas
     - El tipo de motor, debe ser gasolina, electrico o manual
     - Si tiene pedales o no
@@ -203,27 +197,30 @@ const vehicleType = function(numberOfWheels, engineeType, hasPedals) {
     } 
         return('desconocido');
 }
+
+// Clase = 30/10
 // cambiar el codigo de esta funcion para usar un objeto
-const vehicleTypeWithObject = (godofredo) => {
+
+const vehicleTypeWithObject = (vehicle) => {
     const wheels = vehicle.wheels;
     const enginee = vehicle.enginee;
     const hasPedals = vehicle.hasPedals;
 
     if(wheels === 4 && !hasPedals && (enginee === 'electric' || enginee === 'gasolina')) {
-        return('coche');
+        return 'coche';
 
     } if(wheels === 2 && !hasPedals  && enginee === 'gasolina') {
-        return('moto');
+        return 'moto';
 
     }if(wheels === 2 && !hasPedals  && (enginee === 'electric' || enginee === 'manual')) {
-        return('patinete');
+        return 'patinete';
 
     }if(wheels === 2 && hasPedals && (enginee === 'electric' || enginee === 'manual')) {
-        return('bicicleta');
+        return 'bicicleta';
     } 
-        return('desconocido');
+        return 'desconocido';
 }
-const carGas = {
+const car = {
     wheels: 4,
     enginee: 'gasolina',
     hasPedals: false,
@@ -264,8 +261,3 @@ const cycleManual = {
     enginee: 'manual',
     hasPedals: true,
 }
-
-
-console.log(vehicleTypeWithObject(cycleManual));
-
-/* NO FUNCIONA NO SE PQ */
