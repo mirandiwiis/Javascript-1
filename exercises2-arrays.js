@@ -17,11 +17,18 @@ shoppingCart.forEach(product => {
 
 console.log(totalPrice.toFixed(2))
 
+  /* CORRECCIÓN:
+     Recorremos el array con .forEach (no declaramos como constante)
+     Debemos establecer la var totalPrice (debemos  * por la cantidad)
+
+  */
+
 /*
   2. Crea un array que contenga un listado de tareas. Las tareas tienen un texto y pueden estar completadas o pendientes. 
   A continuación filtra el array para mostrar todas las tareas que están completadas y luego todas las tareas que 
   están pendientes.
 */
+
 /* Usar filter*/ 
 
 const tasks = [
@@ -42,6 +49,11 @@ const pendingTasks = tasks.filter(function (task){
 
 console.log(pendingTasks)
 console.log(completedTasks)
+
+  /* RECUERDA: cuando tratamos parámetros true/false no usamos === 'true',
+    directamente se usa el parámetro y para negar ! delante del parámetro
+    */
+
 
 /*
  3. Dado el listado de frutas que ponemos a continuación, recórrelo y crea otro array de igual longitud donde en 
@@ -89,6 +101,9 @@ const cartWithTaxes = shoppingCart2.map (function (item) {
 });
 
 console.log(cartWithTaxes)
+
+  /*tener cuidado con el uso .toFixed porque convierte el nunmero en cadena de texto
+  Se suele utilizar de cara al usuario*/
 
 
 /*
